@@ -1,0 +1,6 @@
+nfs-server:
+  name: "NFS Server"
+  description: "NFS server"
+  has_primary: false
+  public_ip_required: false
+  weight: 1000
