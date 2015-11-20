@@ -14,7 +14,6 @@
 #    under the License.
 #
 class nfs_server::params {
-
   $nfs_server_hash = hiera('nfs-server')
   $nfs_root_path   = $nfs_server_hash['export_path']
 
@@ -25,7 +24,6 @@ class nfs_server::params {
       $service_name         = 'nfs-kernel-server'
     }
     'CentOS', 'RedHat': {
-
       $pkg_name_server      = 'nfs-kernel-server'
       $pkg_name_client      = 'nfs-common'
       $service_name         = 'nfs'
