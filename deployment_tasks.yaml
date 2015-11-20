@@ -1,6 +1,7 @@
 - id: nfs-server
   type: group
   role: [ nfs-server ]
+  tasks: [fuel_pkgs, hiera, globals, logging, tools, netconfig, connectivity_tests, firewall, ssl-keys-saving, ssl-add-trust-chain, hosts]
   parameters:
     strategy:
       type: parallel
@@ -9,11 +10,10 @@
   type: puppet
   groups: [nfs-server]
   required_for: [deploy_end]
-  requires: [fuel_pkgs, hiera, globals, logging, tools, netconfig, connectivity_tests, firewall, ssl-keys-saving, ssl-add-trust-chain, hosts, zabbix]
+  requires: [hosts, firewall]
   parameters:
     puppet_manifest: puppet/manifests/deploy.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 1800
-
 
 
