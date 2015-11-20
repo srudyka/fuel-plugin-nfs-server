@@ -13,10 +13,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 #
-class nfs-server::params {
+class nfs_server::params {
 
-  $nfs-server_hash = hiera('nfs-server')
-  $nfs_root_path   = $nfs-server_hash['export_path']
+  $nfs_server_hash = hiera('nfs-server')
+  $nfs_root_path   = $nfs_server_hash['export_path']
 
   case $::operatingsystem {
     'Ubuntu', 'Debian': {
