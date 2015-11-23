@@ -16,14 +16,3 @@
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 1800
 
-- id: fw-role-nfs
-  type: puppet
-  groups: [nfs-server]
-  required_for: [post_deployment_end]
-  requires: [post_deployment_start]
-  parameters:
-    puppet_manifest: puppet/manifests/post_deploy.pp
-    puppet_modules: puppet/modules:/etc/puppet/modules
-    timeout: 1800
-
-

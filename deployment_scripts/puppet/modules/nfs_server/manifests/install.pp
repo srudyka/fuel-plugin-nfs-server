@@ -1,5 +1,6 @@
 class nfs_server::install  {
   include nfs_server::params
+  include nfs_server::firewall
 
   package { $nfs_server::params::pkg_name_server:
     ensure => installed, 
