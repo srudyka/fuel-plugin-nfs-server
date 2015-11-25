@@ -10,7 +10,7 @@
 - id: top-role-nfs
   type: puppet
   groups: [nfs-server]
-# required_for: [deploy_end, primary-controller, controller]
+  required_for: [deploy_end]
   requires: [hosts, firewall]
   parameters:
     puppet_manifest: puppet/manifests/deploy.pp
