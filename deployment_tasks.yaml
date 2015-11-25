@@ -2,6 +2,7 @@
   type: group
   role: [ nfs-server ]
   tasks: [fuel_pkgs, hiera, globals, logging, tools, netconfig, connectivity_tests, firewall, ssl-keys-saving, ssl-add-trust-chain, hosts]
+  required_for: [deploy_end, primary-controller, controller]
   parameters:
     strategy:
       type: parallel
@@ -9,7 +10,7 @@
 - id: top-role-nfs
   type: puppet
   groups: [nfs-server]
-  required_for: [deploy_end, primary-controller, controller]
+# required_for: [deploy_end, primary-controller, controller]
   requires: [hosts, firewall]
   parameters:
     puppet_manifest: puppet/manifests/deploy.pp
